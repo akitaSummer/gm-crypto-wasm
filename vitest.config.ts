@@ -5,7 +5,7 @@ import nodePolyfills from "rollup-plugin-polyfill-node";
 
 export default defineConfig({
   test: {
-    environment: "jsdom",
+    // environment: "jsdom",
     benchmark: { include: ["**/*.{bench,benchmark}.?(c|m)[jt]s?(x)"] },
   },
   // @ts-ignore

@@ -2,12 +2,14 @@
   "name": "gm-crypto-wasm",
   "version": "0.0.1",
   "description": "An implementation of GM/T industry standards of wasm version",
-  "main": "index.js",
   "type": "module",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "rollup --config",
-    "test": "NODE_OPTIONS='--no-experimental-fetch' yarn vitest run",
-    "bench": "NODE_OPTIONS='--no-experimental-fetch' yarn vitest bench"
+    "test": "NODE_OPTIONS='--no-experimental-fetch' pnpm vitest run",
+    "bench": "NODE_OPTIONS='--no-experimental-fetch' pnpm vitest bench"
   },
   "keywords": [
     "sm2",
