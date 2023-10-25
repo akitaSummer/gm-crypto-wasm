@@ -1,0 +1,40 @@
+{
+  "name": "gm-crypto-wasm",
+  "version": "0.0.1",
+  "description": "An implementation of GM/T industry standards of wasm version",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rollup --config",
+    "test": "NODE_OPTIONS='--no-experimental-fetch' yarn vitest run",
+    "bench": "NODE_OPTIONS='--no-experimental-fetch' yarn vitest bench"
+  },
+  "keywords": [
+    "sm2",
+    "sm3",
+    "sm4",
+    "zuc",
+    "gm",
+    "crypto",
+    "wasm"
+  ],
+  "author": "akitasummer@outlook.com",
+  "license": "MIT",
+  "dependencies": {
+    "buffer": "^5.7.0",
+    "to-arraybuffer": "^1.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@wasm-tool/rollup-plugin-rust": "^2.4.4",
+    "typescript": "5.1.3",
+    "jsdom": "^22.1.0",
+    "rollup": "^2.77.3",
+    "rollup-plugin-polyfill-node": "0.8.0",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "gm-crypto": "^0.1.12",
+    "vitest": "^0.34.6"
+  }
+}
