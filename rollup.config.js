@@ -18,7 +18,7 @@ export default {
     rust({
       inlineWasm: true,
       experimental: { directExports: true, synchronous: true },
-      debug: true,
+      // debug: true,
     }),
     RollupPluginCommonjs(),
     nodePolyfills(),
