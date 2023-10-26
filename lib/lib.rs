@@ -1,5 +1,4 @@
-use rkyv::{Archive, Deserialize, Serialize};
-use smcrypto::{sm2, sm3, sm4};
+use smcrypto::{sm2, sm4};
 use wasm_bindgen::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -20,22 +19,14 @@ macro_rules! log {
 
 #[wasm_bindgen]
 pub fn set_panic_hook() {
-    // When the `console_error_panic_hook` feature is enabled, we can call the
-    // `set_panic_hook` function at least once during initialization, and then
-    // we will get better error messages if our code ever panics.
-    //
-    // For more details see
-    // https://github.com/rustwasm/console_error_panic_hook#readme
     console_error_panic_hook::set_once();
 }
 
 #[wasm_bindgen]
 pub fn set_wasm_panic_hook() {
-    // can be continued
     set_panic_hook();
 }
 
-#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
 #[wasm_bindgen]
 pub struct SM2_KEYS {
     #[wasm_bindgen(getter_with_clone)]
