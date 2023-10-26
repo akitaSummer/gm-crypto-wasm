@@ -112,34 +112,31 @@ decryptedData = SM4.decrypt(encryptedData, key, {
 #### benchmark
 
 ```
+// Why is there no sm3?
+// Because the calculation amount of sm3 is very small, the speed of js is already fast enough, and the loss of wasm data transmission is much greater than the calculation of js.
+// So we used the js version of sm3
+
 // pnpm bench
  DEV  v0.34.6
 
- ✓ bench/inde.benchmark.ts (6) 11003ms
-   ✓ sm2 (2) 9569ms
+ ✓ bench/index.benchmark.ts (4) 10171ms
+   ✓ sm2 (2) 9418ms
      name       hz      min      max     mean      p75      p99     p995     p999     rme  samples
-   · js    20.3139  47.4460  53.8801  49.2273  49.9068  52.9934  53.8801  53.8801  ±0.52%      100
-   · wasm  43.7978  21.1942  25.0285  22.8322  23.6875  25.0257  25.0285  25.0285  ±0.89%      100   fastest
-   ✓ sm3 (2) 10102ms
-     name          hz     min     max    mean     p75     p99    p995    p999     rme  samples
-   · js    235,627.67  0.0038  0.2808  0.0042  0.0042  0.0050  0.0060  0.0139  ±0.44%   117814   fastest
-   · wasm  117,832.27  0.0080  0.3047  0.0085  0.0085  0.0100  0.0117  0.0305  ±0.40%    58917
-   ✓ sm4 (2) 11000ms
-     name      hz     min      max    mean     p75      p99     p995     p999      rme  samples
-   · js    105.40  9.0783  10.4029  9.4876  9.6397  10.2576  10.4029  10.4029   ±0.57%      100
-   · wasm  113.30  6.2914  38.9562  8.8264  8.3445  28.3623  38.9562  38.9562  ±11.63%      100   fastest
+   · js    19.1045  50.6476  60.2170  52.3436  53.0553  56.0920  60.2170  60.2170  ±0.50%      100
+   · wasm  42.6254  21.5548  28.9284  23.4602  24.0769  28.8488  28.9284  28.9284  ±1.14%      100   fastest
+   ✓ sm4 (2) 10167ms
+     name       hz     min      max     mean      p75      p99     p995     p999     rme  samples
+   · js    99.4326  9.6209  10.6127  10.0571  10.2032  10.5983  10.6127  10.6127  ±0.46%      100
+   · wasm   136.29  6.3064   8.6758   7.3375   8.1883   8.6321   8.6758   8.6758  ±2.33%      100   fastest
 
 
  BENCH  Summary
 
-  wasm - bench/inde.benchmark.ts > sm2
-    2.16x faster than js
+  wasm - bench/index.benchmark.ts > sm2
+    2.23x faster than js
 
-  js - bench/inde.benchmark.ts > sm3
-    2.00x faster than wasm
-
-  wasm - bench/inde.benchmark.ts > sm4
-    1.07x faster than js
+  wasm - bench/index.benchmark.ts > sm4
+    1.37x faster than js
 ```
 
 ## API

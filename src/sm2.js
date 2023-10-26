@@ -63,6 +63,8 @@ export const decrypt = (data, privateKey, options) => {
     );
   }
 
+  data = pc ? Buffer.from(data.toString("hex").substr(2), "hex") : data;
+
   const res =
     mode === C1C2C3
       ? sm2_decrypt_c1c2c3(privateKey, new Uint8Array(data.buffer))

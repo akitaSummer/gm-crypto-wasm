@@ -1,0 +1,12 @@
+__test__
+src
+coverage
+.github
+.idea
+.versionrc.js
+vitest.config.ts
+rollup.config.js
+.vscode
+lib
+bench
+Cargo.lock

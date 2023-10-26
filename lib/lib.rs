@@ -1,3 +1,4 @@
+use rkyv::{Archive, Deserialize, Serialize};
 use smcrypto::{sm2, sm3, sm4};
 use wasm_bindgen::prelude::*;
 
@@ -33,6 +34,7 @@ pub fn set_wasm_panic_hook() {
     set_panic_hook();
 }
 
+#[derive(Archive, Deserialize, Serialize, Debug, PartialEq)]
 #[wasm_bindgen]
 pub struct SM2_KEYS {
     #[wasm_bindgen(getter_with_clone)]
@@ -51,54 +53,49 @@ pub fn sm2_gen_keypair() -> SM2_KEYS {
 }
 
 #[wasm_bindgen]
-pub fn sm2_encrypt_c1c2c3(pk: String, buffer: Vec<u8>) -> Vec<u8> {
-    let enc_ctx = sm2::Encrypt::new(&pk);
-    enc_ctx.encrypt_c1c2c3(&buffer)
+pub fn sm2_encrypt_c1c2c3(pk: &str, buffer: &[u8]) -> Vec<u8> {
+    let enc_ctx = sm2::Encrypt::new(pk);
+    enc_ctx.encrypt_c1c2c3(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm2_encrypt_c1c3c2(pk: String, buffer: Vec<u8>) -> Vec<u8> {
-    let enc_ctx = sm2::Encrypt::new(&pk);
-    enc_ctx.encrypt(&buffer)
+pub fn sm2_encrypt_c1c3c2(pk: &str, buffer: &[u8]) -> Vec<u8> {
+    let enc_ctx = sm2::Encrypt::new(pk);
+    enc_ctx.encrypt(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm2_decrypt_c1c2c3(sk: String, buffer: Vec<u8>) -> Vec<u8> {
-    let enc_ctx = sm2::Decrypt::new(&sk);
-    enc_ctx.decrypt_c1c2c3(&buffer)
+pub fn sm2_decrypt_c1c2c3(sk: &str, buffer: &[u8]) -> Vec<u8> {
+    let enc_ctx = sm2::Decrypt::new(sk);
+    enc_ctx.decrypt_c1c2c3(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm2_decrypt_c1c3c2(sk: String, buffer: Vec<u8>) -> Vec<u8> {
-    let enc_ctx = sm2::Decrypt::new(&sk);
-    enc_ctx.decrypt(&buffer)
+pub fn sm2_decrypt_c1c3c2(sk: &str, buffer: &[u8]) -> Vec<u8> {
+    let enc_ctx = sm2::Decrypt::new(sk);
+    enc_ctx.decrypt(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm3_digest(buffer: Vec<u8>) -> String {
-    sm3::sm3_hash(&buffer)
+pub fn sm4_encrypt_ecb(k: &[u8], buffer: &[u8]) -> Vec<u8> {
+    let sm4_ecb = sm4::CryptSM4ECB::new(k);
+    sm4_ecb.encrypt_ecb(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm4_encrypt_ecb(k: Vec<u8>, buffer: Vec<u8>) -> Vec<u8> {
-    let sm4_ecb = sm4::CryptSM4ECB::new(&k);
-    sm4_ecb.encrypt_ecb(&buffer)
+pub fn sm4_encrypt_cbc(k: &[u8], iv: &[u8], buffer: &[u8]) -> Vec<u8> {
+    let sm4_cbc = sm4::CryptSM4CBC::new(k, iv);
+    sm4_cbc.encrypt_cbc(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm4_encrypt_cbc(k: Vec<u8>, iv: Vec<u8>, buffer: Vec<u8>) -> Vec<u8> {
-    let sm4_cbc = sm4::CryptSM4CBC::new(&k, &iv);
-    sm4_cbc.encrypt_cbc(&buffer)
+pub fn sm4_decrypt_ecb(k: &[u8], buffer: &[u8]) -> Vec<u8> {
+    let sm4_ecb = sm4::CryptSM4ECB::new(k);
+    sm4_ecb.decrypt_ecb(buffer)
 }
 
 #[wasm_bindgen]
-pub fn sm4_decrypt_ecb(k: Vec<u8>, buffer: Vec<u8>) -> Vec<u8> {
-    let sm4_ecb = sm4::CryptSM4ECB::new(&k);
-    sm4_ecb.decrypt_ecb(&buffer)
-}
-
-#[wasm_bindgen]
-pub fn sm4_decrypt_cbc(k: Vec<u8>, iv: Vec<u8>, buffer: Vec<u8>) -> Vec<u8> {
-    let sm4_cbc = sm4::CryptSM4CBC::new(&k, &iv);
-    sm4_cbc.decrypt_cbc(&buffer)
+pub fn sm4_decrypt_cbc(k: &[u8], iv: &[u8], buffer: &[u8]) -> Vec<u8> {
+    let sm4_cbc = sm4::CryptSM4CBC::new(k, iv);
+    sm4_cbc.decrypt_cbc(buffer)
 }

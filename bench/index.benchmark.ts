@@ -1,10 +1,6 @@
 import { bench, describe } from "vitest";
-import { SM2, SM3, SM4 } from "gm-crypto";
-import {
-  SM2 as SM2_WASM,
-  SM3 as SM3_WASM,
-  SM4 as SM4_WASM,
-} from "../dist/index";
+import { SM2, SM4 } from "gm-crypto";
+import { SM2 as SM2_WASM, SM4 as SM4_WASM } from "../dist/index";
 
 const { publicKey, privateKey } = SM2.generateKeyPair();
 
@@ -43,32 +39,6 @@ describe("sm2", () => {
         inputEncoding: "hex",
         outputEncoding: "utf8",
       });
-    },
-    { iterations: 100 }
-  );
-});
-
-describe("sm3", () => {
-  bench(
-    "js",
-    () => {
-      SM3.digest(
-        "61626364616263646162636461626364616263646162636461626364616263646162636461626364616263646162636461626364616263646162636461626364",
-        "hex",
-        "hex"
-      );
-    },
-    { iterations: 100 }
-  );
-
-  bench(
-    "wasm",
-    () => {
-      SM3_WASM.digest(
-        "61626364616263646162636461626364616263646162636461626364616263646162636461626364616263646162636461626364616263646162636461626364",
-        "hex",
-        "hex"
-      );
     },
     { iterations: 100 }
   );
