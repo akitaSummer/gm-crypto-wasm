@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.4...v0.1.5) (2023-10-26)
+
+
+### 🐛 Bug Fixes
+
+* add ci rust update ([fe77df7](https://github.com/akitaSummer/gm-crypto-wasm/commit/fe77df7a3a0dfd121f799df247a6fb7df520b111))
+* fix ci/cd ([2ac28e6](https://github.com/akitaSummer/gm-crypto-wasm/commit/2ac28e6ee0ffb91550e72b0176cd4671d208b0fd))
+
+
+### ✨ Features
+
+* optimize wasm size ([4343625](https://github.com/akitaSummer/gm-crypto-wasm/commit/434362584ce7e4d760ec6b6f6e3624eb32bdedd1))
+
 ### [0.1.4](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.3...v0.1.4) (2023-10-26)
 
 
