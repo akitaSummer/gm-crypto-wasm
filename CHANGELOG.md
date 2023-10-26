@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.2...v0.1.3) (2023-10-26)
+
+
+### 🐛 Bug Fixes
+
+* fix npm ignore ([e9f0447](https://github.com/akitaSummer/gm-crypto-wasm/commit/e9f0447ee2a7c56537e4d7d53977895e9ea654fc))
+* fix ssr ([8360512](https://github.com/akitaSummer/gm-crypto-wasm/commit/83605120b5b3c119669f876806c0c28441b036d4))
+
 ### [0.1.2](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.1...v0.1.2) (2023-10-26)
 
 
