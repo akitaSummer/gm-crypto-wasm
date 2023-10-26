@@ -56,6 +56,10 @@ declare module "gm-crypto-wasm" {
       inputEncoding?: BufferEncoding;
       /** If `outputEncoding` is provided, a string will be returned, otherwise a [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) is returned. */
       outputEncoding: BufferEncoding;
+      /**
+       * @default false
+       *  */
+      pc?: boolean;
     }
     export interface DecryptOptions {
       /**
@@ -69,6 +73,10 @@ declare module "gm-crypto-wasm" {
       inputEncoding?: BufferEncoding;
       /** If `outputEncoding` is provided, a string will be returned, otherwise a [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) is returned. */
       outputEncoding: BufferEncoding;
+      /**
+       * @default false
+       *  */
+      pc?: boolean;
     }
   }
   export namespace SM3 {

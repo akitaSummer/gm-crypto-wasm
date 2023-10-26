@@ -99,7 +99,7 @@ describe("SM2", () => {
     plainData = SM2.decrypt("04" + cipherData, privateKey, {
       inputEncoding: "hex",
       outputEncoding: "utf8",
-      pc: 1,
+      pc: true,
     });
     expect(plainData).toBe(data);
 
@@ -107,7 +107,7 @@ describe("SM2", () => {
     cipherData = SM2.encrypt(data, publicKey, {
       inputEncoding: "utf8",
       outputEncoding: "hex",
-      pc: 1,
+      pc: true,
     });
     plainData = SM2.decrypt(cipherData.substr(2), privateKey, {
       inputEncoding: "hex",

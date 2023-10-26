@@ -21,7 +21,12 @@ export const generateKeyPair = (needPC = true) => {
 };
 
 export const encrypt = (data, publicKey, options) => {
-  const { mode = C1C3C2, inputEncoding, outputEncoding, pc } = options || {};
+  const {
+    mode = C1C3C2,
+    inputEncoding,
+    outputEncoding,
+    pc = false,
+  } = options || {};
 
   if (typeof data === "string") {
     data = Buffer.from(data, inputEncoding || "utf8");
@@ -42,13 +47,18 @@ export const encrypt = (data, publicKey, options) => {
       : sm2_encrypt_c1c3c2(publicKey, new Uint8Array(data.buffer))
   );
 
-  const buff = pc === 1 ? Buffer.from("04" + res.toString("hex"), "hex") : res;
+  const buff = pc ? Buffer.from("04" + res.toString("hex"), "hex") : res;
 
   return outputEncoding ? buff.toString(outputEncoding) : toArrayBuffer(buff);
 };
 
 export const decrypt = (data, privateKey, options) => {
-  const { mode = C1C3C2, inputEncoding, outputEncoding, pc } = options || {};
+  const {
+    mode = C1C3C2,
+    inputEncoding,
+    outputEncoding,
+    pc = false,
+  } = options || {};
 
   if (typeof data === "string") {
     data = Buffer.from(data, inputEncoding);
