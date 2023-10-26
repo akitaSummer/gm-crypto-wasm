@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.3...v0.1.4) (2023-10-26)
+
+
+### 🐛 Bug Fixes
+
+* fix types EncryptOptions pc ([89c4810](https://github.com/akitaSummer/gm-crypto-wasm/commit/89c4810c01ce97846b5156e6e5bea3da737ac5c0))
+
 ### [0.1.3](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.2...v0.1.3) (2023-10-26)
 
 
