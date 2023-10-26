@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/akitaSummer/gm-crypto-wasm/compare/v0.1.1...v0.1.2) (2023-10-26)
+
+
+### ✨ Features
+
+* add test ([bf29ed3](https://github.com/akitaSummer/gm-crypto-wasm/commit/bf29ed31c1240b2bf93c8722663d5f4818b8d8d8))
+
 ### 0.1.1 (2023-10-26)
 
 
