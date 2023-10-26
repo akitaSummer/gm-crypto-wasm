@@ -42,7 +42,7 @@ export const encrypt = (data, publicKey, options) => {
       : sm2_encrypt_c1c3c2(publicKey, new Uint8Array(data.buffer))
   );
 
-  const buff = pc === 1 ? Buffer.concat([Buffer.from("04", "hex"), res]) : res;
+  const buff = pc === 1 ? Buffer.from("04" + res.toString("hex"), "hex") : res;
 
   return outputEncoding ? buff.toString(outputEncoding) : toArrayBuffer(buff);
 };

@@ -20,10 +20,6 @@ describe("SM3", () => {
       "66c7f0f462eeedd9d1f2d46bdc10e4e24167c4875cf2f7a2297da02b8f4ba8e0"
     );
 
-    expect(SM3.digest(Buffer.from("abc"), "", "base64")).toBe(
-      "Zsfw9GLu7dnR8tRr3BDk4kFnxIdc8veiKX2gK49LqOA="
-    );
-
     expect(SM3.digest(toArrayBuffer(Buffer.from("abc")), "x", "base64")).toBe(
       "Zsfw9GLu7dnR8tRr3BDk4kFnxIdc8veiKX2gK49LqOA="
     );

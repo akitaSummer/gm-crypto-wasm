@@ -1,5 +1,9 @@
-if (typeof globalThis !== "undefined") {
-  const { webcrypto } = require("node:crypto");
+import { set_panic_hook } from "../Cargo.toml";
+
+set_panic_hook();
+
+if (typeof globalThis !== "undefined" && typeof window === "undefined") {
+  const { webcrypto } = require("crypto");
   globalThis.crypto = webcrypto;
 }
 
